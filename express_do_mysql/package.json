@@ -1,0 +1,25 @@
+{
+  "name": "express_do_mysql",
+  "version": "1.0.0",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "mysql",
+    "express",
+    "node.js"
+  ],
+  "author": "罗邓",
+  "license": "ISC",
+  "description": "用于学习express操作mysql的数据库，还有api接口的使用，以及使用chance生成随机数据，还有cookie和Session的使用",
+  "dependencies": {
+    "axios": "^1.7.2",
+    "chance": "^1.1.11",
+    "cookie-parser": "^1.4.6",
+    "express": "^4.19.2",
+    "express-session": "^1.18.0",
+    "mysql": "^2.18.1",
+    "nodemon": "^3.1.2"
+  }
+}

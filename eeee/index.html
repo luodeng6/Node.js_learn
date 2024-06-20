@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <title>ECharts</title>
+    <!-- 引入刚刚下载的 ECharts 文件 -->
+    <script src="https://cdn.jsdelivr.net/npm/echarts@5.5.0/dist/echarts.min.js"></script>
+    <style>
+        .main {
+            display: flex;
+            justify-content: space-between;
+            /*自动换行*/
+            align-items: flex-start;
+            /*垂直居中*/
+            flex-wrap: wrap;
+        }
+
+        .main div {
+            margin: 20px;
+        }
+    </style>
+</head>
+<body>
+<div class="main">
+    <!-- 为 ECharts 准备一个定义了宽高的 DOM -->
+    <div id="barmain" style="width: 600px;height:400px;"></div>
+    <div id="Piemain" style="width: 600px;height:400px;"></div>
+    <div id="scattermain" style="width: 600px;height:400px;"></div>
+    <div id="lineChartmain" style="width: 600px;height:400px;"></div>
+    <div id="Pie2main" style="width: 600px;height:400px;"></div>
+    <div id="JiaGeMain" style="width: 600px;height:400px;"></div>
+    <div id="defferentColorMain" style="width: 1200px;height:800px;"></div>
+    <div id="defferentColorMainBingTu" style="width: 1200px;height:800px;"></div>
+    <div id="mainjiTu" style="width: 1200px;height:800px;"></div>
+    <div id="dynamicMain" style="width: 1200px;height:800px;"></div>
+    <div id="DynamicLineChart" style="width: 1200px;height:800px;"></div>
+    <div id="wordcloud" style="width: 1200px;height:800px;"></div>
+</div>
+
+<script src="js/axios.min.js"></script>
+<script src="图/柱状图.js"></script>
+<script src="图/饼图.js"></script>
+<script src="图/散点图.js"></script>
+<script src="图/折线图.js"></script>
+<script src="图/面积图.js"></script>
+<script src="图/词云图.js"></script>
+<script>
+    柱状图();
+    饼图(true);
+    散点图();
+    基础折现图(true);
+    可滚动的饼图();
+    价格区间柱状图();
+    不同颜色的柱状图();
+    不同颜色的饼图();
+    基础面积图();
+    动态柱状图();
+    动态折线();
+    // 读取成功->axios读取json文件
+    axios.get('data.json').then((response) => {
+        console.log(response.data);
+    }).catch((error) => {
+        console.log(error);
+    })
+</script>
+</body>
+</html>

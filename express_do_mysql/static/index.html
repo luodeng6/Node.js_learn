@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>用户管理</title>
+    <!-- 导入bootstrap样式-->
+    <link rel="stylesheet" href="bootstrap/bootstrap.min.css">
+    <link rel="stylesheet" href="elementUI/elementCSS.css">
+    <!--引入图标库-->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+    <!--引入element的图标库-->
+    <link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
+</head>
+<style>
+    .card-container {
+        height: 500px; /* 设置卡片容器的高度 */
+        overflow-y: auto; /* 在垂直方向上启用滚动条 */
+    }
+</style>
+
+<body>
+<div id="app">
+    当前用户:{{username}}
+    <transition name="el-zoom-in-center">
+        <div  v-show="show" class="transition-box">
+
+            <div class="container" style="margin-top: 50px;">
+                <div class="row">
+                    <div class="col-md-2">
+                        <h4>数据量:{{this.tableData.length}}</h4>
+                    </div>
+                    <div class="col-md-10">
+                        <el-form :inline="true" class="demo-form-inline">
+                            <el-form-item label="用户名关键词">
+                                <el-input v-model="username" placeholder="输出用户名关键词~"></el-input>
+                            </el-form-item>
+
+                            <el-form-item>
+                                <el-button type="primary" @click="foundData">查  询</el-button>
+                                <el-popover placement="top" width="160" v-model="visible">
+                                    <p>确定删除吗？</p>
+                                    <div style="text-align: right; margin: 0">
+                                        <el-button size="mini" type="primary" icon="el-icon-circle-close" @click="visible = false">取消</el-button>
+                                        <el-button type="danger" icon="el-icon-delete" size="mini" @click="deleteData">确定</el-button>
+                                    </div>
+                                    <el-button type="danger" icon="el-icon-delete" slot="reference">删除选中用户</el-button>
+                                </el-popover>
+
+
+                                <el-button type="wanning" icon="el-icon-plus" @click="insertData">插入用户</el-button>
+                                <el-button type="warning" icon="el-icon-switch-button" @click="loginout">退出登录</el-button>
+                            </el-form-item>
+                        </el-form>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-12">
+
+                    </div>
+                    <el-card class="box-card card-container">
+                        <div class="card-content" ref="content">
+                            <!-- 卡片内容 -->
+                            <el-table ref="multipleTable" :data="tableData" tooltip-effect="dark" style="width: 100%"
+                                      @selection-change="handleSelectionChange">
+                                <el-table-column type="selection" width="120"></el-table-column>
+                                <el-table-column prop="id" label="id" width="120"></el-table-column>
+                                <el-table-column prop="username" label="用户名" width="360"></el-table-column>
+                                <el-table-column prop="name" label="名字" width="360"></el-table-column>
+                                <el-table-column prop="password" label="密码" show-overflow-tooltip></el-table-column>
+                            </el-table>
+                            <div style="margin-top: 20px">
+                                <el-button @click="toggleSelection()">取消选择</el-button>
+                            </div>
+                        </div>
+                    </el-card>
+                </div>
+            </div>
+<!--            主体内容 结束-->
+
+        </div>
+    </transition>
+
+
+
+
+</div>
+
+
+<script src="js/jquery-3.7.1.js"></script>
+<script src="js/vue.js"></script>
+<script src="elementUI/elementJS.js"></script>
+<script src="bootstrap/bootstrap.min.js"></script>
+<script src="js/axios.min.js"></script>
+<script src="js/myjs.js"></script>
+</body>
+</html>

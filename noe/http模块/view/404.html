@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>404 - 页面未找到</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #222;
+            color: #fff;
+        }
+        .container {
+            text-align: center;
+        }
+        h1 {
+            font-size: 6em;
+            margin: 0;
+        }
+        p {
+            font-size: 1.5em;
+        }
+        @keyframes neon {
+            0% { text-shadow: 0 0 10px #fff, 0 0 20px #00f, 0 0 30px #0ff; }
+            50% { text-shadow: 0 0 20px #fff, 0 0 30px #00f, 0 0 40px #0ff; }
+            100% { text-shadow: 0 0 30px #fff, 0 0 40px #00f, 0 0 50px #0ff; }
+        }
+        h1 {
+            animation: neon 1.5s infinite alternate;
+        }
+        img {
+            width: 300px;
+            height: auto;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h1>404</h1>
+    <p>哎呀！这个页面好像不见了...</p>
+    <img src="https://www.nasa.gov/wp-content/uploads/2024/05/53703001014-35be712015-k.jpg?resize=1536,933" alt="宇宙图像">
+</div>
+</body>
+</html>
